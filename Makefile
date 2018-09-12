@@ -9,8 +9,8 @@ run:
 	go get github.com/gin-gonic/gin
 	go get github.com/jinzhu/gorm
 	go get github.com/jinzhu/gorm/dialects/postgres
-	cd build&&go build ./../cmd/ru.maxkrasnov.api/main.go&&nohup ./main &
+	cd build&&go build ./../cmd/ru.maxkrasnov.api/main.go&&./main
 # обрабатывает команду make deploy - запускает сборку докер контейнеров
 deploy:
 	cd deployments&&docker-compose build
-	cd deployments&&docker-compose up	
+	cd deployments&&docker-compose up
