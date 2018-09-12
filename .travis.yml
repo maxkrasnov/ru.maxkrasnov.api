@@ -28,7 +28,7 @@ deploy:
   on:
     branch: master
 before_deploy:
-  - openssl aes-256-cbc -K $encrypted_a95c2b96b935_key -iv $encrypted_a95c2b96b935_iv -in /build/ci/deploy.enc -out deploy -d
+  - openssl aes-256-cbc -K $encrypted_a95c2b96b935_key -iv $encrypted_a95c2b96b935_iv -in deploy.enc -out deploy -d
   - eval "$(ssh-agent -s)"
   - chmod 600 deploy
   - ssh-add deploy
