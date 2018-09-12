@@ -13,4 +13,4 @@ run:
 # обрабатывает команду make deploy - запускает сборку докер контейнеров
 deploy:
 	cd deployments&&docker-compose build
-	cd deployments&&docker-compose up
+	cd deployments&&docker-compose up	
