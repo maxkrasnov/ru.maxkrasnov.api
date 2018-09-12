@@ -10,4 +10,4 @@ services:
         dockerfile: ./build/package/Dockerfile
       command: ["make", "run"]
       ports:
-        - "8080:8080"
+        - "3009:3009"
