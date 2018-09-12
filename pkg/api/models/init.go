@@ -10,7 +10,7 @@ var db *gorm.DB
 // Инициализация коннекта к БД
 func InitDB() *gorm.DB  {
 	var err error
-	db, err = gorm.Open("postgres", "host=postgres port=5432 user=postgres dbname=postgres sslmode=disable")
+	db, err = gorm.Open("postgres", "host=postgres port=5433 user=postgres dbname=postgres sslmode=disable")
 	if err != nil {
 		panic(1)
 	}

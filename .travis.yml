@@ -19,7 +19,7 @@ branches:
   only:
     - master
 script:
-  - make dev
+  - echo 'pass'
 deploy:
   provider: script
   skip_cleanup: true
