@@ -6,6 +6,8 @@ notifications:
   email:
     onfailure: change
     onsuccess: change
+services:
+  - docker
 addons:
   ssh_known_hosts:
     - maxkrasnov.ru
