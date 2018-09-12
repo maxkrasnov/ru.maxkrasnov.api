@@ -3,11 +3,11 @@ services:
   postgres:
     image: postgres:latest
     ports:
-        - "5444:5444"
+        - "5432:5444"
   app:
       build:
         context: ..
         dockerfile: ./build/package/Dockerfile
-      command: ["make", "dev"]
+      command: ["make", "run"]
       ports:
         - "8080:8080"
