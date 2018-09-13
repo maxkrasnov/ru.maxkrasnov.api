@@ -1,34 +1,36 @@
 language: go
 go:
-  - master
+- master
 sudo: required
 notifications:
   email:
     onfailure: change
     onsuccess: change
 services:
-  - docker
-  - postgresql
+- docker
+- postgresql
 addons:
   ssh_known_hosts:
-    - maxkrasnov.ru
+  - maxkrasnov.ru
   apt:
     packages:
-      - sshpass
+    - sshpass
 branches:
   only:
-    - master
+  - master
 script:
-  - echo 'pass'
+- echo 'pass'
 deploy:
   provider: script
   skip_cleanup: true
   script:
-    - ssh $TRAVIS_USER@maxkrasnov.ru 'rm -rf ru.maxkrasnov.api&&git clone https://github.com/maxkrasnov/ru.maxkrasnov.api.git&&cd ru.maxkrasnov.api&&make deploy'
+  - ssh $TRAVIS_USER@maxkrasnov.ru 'rm -rf ru.maxkrasnov.api&&git clone https://github.com/maxkrasnov/ru.maxkrasnov.api.git&&cd
+    ru.maxkrasnov.api&&make deploy'
   on:
     branch: master
 before_deploy:
-  - openssl aes-256-cbc -K $encrypted_a95c2b96b935_key -iv $encrypted_a95c2b96b935_iv -in deploy.enc -out deploy -d
-  - eval "$(ssh-agent -s)"
-  - chmod 600 deploy
-  - ssh-add deploy
+- openssl aes-256-cbc -K $encrypted_e4538e468034_key -iv $encrypted_e4538e468034_iv
+  -in deploy.enc -out deploy -d
+- eval "$(ssh-agent -s)"
+- chmod 600 deploy
+- ssh-add deploy
