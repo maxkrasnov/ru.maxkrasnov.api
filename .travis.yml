@@ -24,8 +24,9 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - ssh $TRAVIS_USER@maxkrasnov.ru 'rm -rf ru.maxkrasnov.api&&git clone https://github.com/maxkrasnov/ru.maxkrasnov.api.git&&cd
-    ru.maxkrasnov.api&&make deploy'
+  - ssh $TRAVIS_USER@maxkrasnov.ru -p $TRAVIS_PORT 'rm -rf ru.maxkrasnov.api&&git
+    clone https://github.com/maxkrasnov/ru.maxkrasnov.api.git&&cd ru.maxkrasnov.api&&make
+    deploy'
   on:
     branch: master
 before_deploy:
@@ -34,5 +35,3 @@ before_deploy:
 - eval "$(ssh-agent -s)"
 - chmod 600 deploy
 - ssh-add deploy
-before_install:
-
