@@ -25,7 +25,7 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-  - ssh $TRAVIS_USER@maxkrasnov.ru -p $TRAVIS_PORT 'rm -rf ru.maxkrasnov.api&&git
+  - ssh $TRAVIS_USER@maxkrasnov.ru -p $TRAVIS_PORT -o "StrictHostKeyChecking no" 'rm -rf ru.maxkrasnov.api&&git
     clone https://github.com/maxkrasnov/ru.maxkrasnov.api.git&&cd ru.maxkrasnov.api&&make
     deploy'
   on:
