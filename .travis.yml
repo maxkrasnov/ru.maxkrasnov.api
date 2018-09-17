@@ -12,9 +12,6 @@ services:
 addons:
   ssh_known_hosts:
     - maxkrasnov.ru
-  apt:
-    packages:
-    - sshpass
 branches:
   only:
   - master
