@@ -19,6 +19,7 @@ type Resume struct {
 
 // Список навыков
 type ResumeSkill struct {
+	ID uint `binding:"-"`
 	Name string `gorm:"type:varchar(80);" json:"name"`
 	Level string `gorm:"type:int" json:"level"`
 	Resume Resume `json:"-"`
@@ -27,6 +28,7 @@ type ResumeSkill struct {
 
 // Список для "опыт работы"
 type ResumeWork struct {
+	ID uint `binding:"-"`
 	Years string `gorm:"type:varchar(9);" json:"years"`
 	Organization string `gorm:"type:varchar(255)" json:"work"`
 	Position string `gorm:"type:varchar(255)" json:"position"`
@@ -38,6 +40,7 @@ type ResumeWork struct {
 
 // Список для "Обучение"
 type ResumeEducation struct {
+	ID uint `binding:"-"`
 	Years string `gorm:"type:varchar(9);" json:"years"`
 	Organization string `gorm:"type:varchar(255)" json:"work"`
 	Position string `gorm:"type:varchar(255)" json:"position"`
