@@ -10,9 +10,7 @@ services:
 - docker
 - postgresql
 addons:
-  ssh_known_hosts:
-  - maxkrasnov.ru
-  - maxkrasnov.ru:$TRAVIS_PORT
+  ssh_known_hosts: maxkrasnov.ru:$TRAVIS_PORT
   apt:
     packages:
     - sshpass
