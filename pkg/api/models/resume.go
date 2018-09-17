@@ -22,7 +22,7 @@ type Resume struct {
 type ResumeSkill struct {
 	ID uint `gorm:"primary_key" binding:"-"`
 	Name string `gorm:"type:varchar(80);" json:"name"`
-	Level string `gorm:"type:int" json:"level"`
+	Level int `gorm:"type:int" json:"level"`
 	Resume Resume `json:"-"`
 	ResumeID uint `json:"-"`
 }
