@@ -2,6 +2,7 @@ package models
 
 import (
 	"github.com/jinzhu/gorm"
+	"sort"
 )
 
 /**
@@ -54,7 +55,13 @@ func (r *Resume) Get(db *gorm.DB)  {
 	resumeSkills := []ResumeSkill{}
 	resumeWorks := []ResumeWork{}
 	resumeEducation := []ResumeEducation{}
-	db.Last(&r).Related(&resumeSkills).Order("resume_skills.level desc").Related(&resumeWorks).Related(&resumeEducation)
+	db.Last(&r).Related(&resumeSkills).Related(&resumeWorks).Related(&resumeEducation)
+
+	// Вомзожно, не лучшее решение, просто быстро и без запарки
+	sort.Slice(resumeSkills, func(i, j int) bool {
+		return resumeSkills[i].Level > resumeSkills[j].Level
+	})
+
 	r.Skills = resumeSkills
 	r.Experience = resumeWorks
 	r.Education = resumeEducation
