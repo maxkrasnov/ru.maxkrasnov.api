@@ -16,12 +16,13 @@ type Note struct {
 	Media string `gorm:"type:text;" json:"media"`
 	PreviewText string `gorm:"type:text;" json:"preview_text"`
 	DetailText string `gorm:"type:text;" json:"detail_text"`
+	HTML bool `gorm:"type:boolean" json:"html"`
 }
 
 func (n *Note) GetAll(db *gorm.DB, page int) []Note {
 	t := []Note{}
 	offset, limit := PaginatorNum(page)
-	db.Select("code, title, media, preview_text, created_at").Offset(offset).Limit(limit).Find(&t, Note{
+	db.Select("code, title, media, preview_text, created_at, category").Order("created_at desc").Offset(offset).Limit(limit).Find(&t, Note{
 		Active: true,
 	})
 	return t
