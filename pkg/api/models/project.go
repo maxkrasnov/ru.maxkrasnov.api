@@ -19,7 +19,7 @@ type Project struct {
 func (p *Project) GetAll(db *gorm.DB, page int) []Project {
 	t := []Project{}
 	offset, limit := PaginatorNum(page)
-	db.Offset(offset).Limit(limit).Find(&t, Project{
+	db.Offset(offset).Order("created_at desc").Limit(limit).Find(&t, Project{
 		Active: true,
 	})
 	return t

@@ -54,7 +54,7 @@ func (r *Resume) Get(db *gorm.DB)  {
 	resumeSkills := []ResumeSkill{}
 	resumeWorks := []ResumeWork{}
 	resumeEducation := []ResumeEducation{}
-	db.Last(&r).Related(&resumeSkills).Related(&resumeWorks).Related(&resumeEducation)
+	db.Last(&r).Related(&resumeSkills).Order("resume_skills.level desc").Related(&resumeWorks).Related(&resumeEducation)
 	r.Skills = resumeSkills
 	r.Experience = resumeWorks
 	r.Education = resumeEducation
