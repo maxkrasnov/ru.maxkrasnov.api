@@ -25,6 +25,7 @@ func InitAPI()  {
 	router.NoRoute(func(c *gin.Context) {
 		c.JSON(404, gin.H{"code": "NOT_FOUND", "message": "Route not found"})
 	})
+
 	router.Run(":3009")
 }
 
