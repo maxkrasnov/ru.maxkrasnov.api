@@ -11,3 +11,5 @@ services:
       command: ["make", "run"]
       ports:
         - "3009:3009"
+      environment:
+              - APP_VERSION=${APP_VERSION}

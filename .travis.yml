@@ -22,8 +22,7 @@ deploy:
   skip_cleanup: true
   script:
   - ssh $TRAVIS_USER@maxkrasnov.ru 'rm -rf ru.maxkrasnov.api&&git
-    clone https://github.com/maxkrasnov/ru.maxkrasnov.api.git&&cd ru.maxkrasnov.api&&make
-    deploy'
+    clone https://github.com/maxkrasnov/ru.maxkrasnov.api.git&&cd ru.maxkrasnov.api&&export APP_VERSION=$(git describe --tags --abbrev=0)&&make deploy'
   on:
     branch: master
 before_deploy:

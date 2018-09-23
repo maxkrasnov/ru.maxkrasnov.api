@@ -13,4 +13,4 @@ run:
 # обрабатывает команду make deploy - запускает сборку докер контейнеров
 deploy:
 	cd deployments&&docker-compose build
-	cd deployments&&docker-compose up -d
+	export APP_VERSION=$(APP_VERSION)&&cd deployments&&docker-compose up -d

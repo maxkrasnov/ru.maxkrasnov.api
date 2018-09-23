@@ -4,6 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
 )
 
 type Controller struct {
@@ -14,6 +15,6 @@ func (cr *Controller) Index(c *gin.Context)  {
 	c.JSON(http.StatusOK, gin.H{
 		"status": true,
 		"message": "Привет! Есть вопросы, пиши на me@maxkrasnov.ru",
-		"version": "1.0.0",
+		"version": os.Getenv("APP_VERSION"),
 	})
 }
