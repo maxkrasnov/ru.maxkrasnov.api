@@ -31,7 +31,7 @@ type ResumeSkill struct {
 type ResumeWork struct {
 	ID uint `gorm:"primary_key" binding:"-"`
 	Years string `gorm:"type:varchar(9);" json:"years"`
-	Organization string `gorm:"type:varchar(255)" json:"work"`
+	Organization string `gorm:"type:varchar(255)" json:"organization"`
 	Position string `gorm:"type:varchar(255)" json:"position"`
 	Location string `gorm:"type:varchar(255)" json:"location"`
 	Description string `gorm:"type:text" json:"description"`
@@ -43,7 +43,7 @@ type ResumeWork struct {
 type ResumeEducation struct {
 	ID uint `gorm:"primary_key" binding:"-"`
 	Years string `gorm:"type:varchar(9);" json:"years"`
-	Organization string `gorm:"type:varchar(255)" json:"work"`
+	Organization string `gorm:"type:varchar(255)" json:"organization"`
 	Position string `gorm:"type:varchar(255)" json:"position"`
 	Location string `gorm:"type:varchar(255)" json:"location"`
 	Description string `gorm:"type:text" json:"description"`
